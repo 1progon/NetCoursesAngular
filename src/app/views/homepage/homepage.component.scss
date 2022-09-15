@@ -1,0 +1,21 @@
+section {
+  margin: 20px 0;
+
+  &.subscribe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      margin-right: 10px;
+    }
+
+    & .title {
+      font-weight: 600;
+      border-bottom: 1px solid gray;
+    }
+  }
+}
+
+

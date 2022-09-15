@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <h2>{{course.name}}</h2>
+
+  <div class="content">
+    <article>
+      <iframe *ngIf="videoUrl && videoUrl != ''"
+              [src]="videoUrl"
+              [title]="course.name"
+              style="border: none; width: 100%;min-height: 70vh"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+
+      <router-outlet></router-outlet>
+
+
+      <div class="lead">{{course.description}}</div>
+
+
+      <article>{{course.article}}</article>
+    </article>
+
+    <div class="sidebar">
+      <div class="lead">
+        <img [alt]="course.name"
+             [src]="course.image ?? 'https://via.placeholder.com/140x64.png?text=Logo'"
+             height="64"
+             width="120">
+        <p>{{course.name}}</p>
+      </div>
+
+
+      <div class="thumbs">
+        <div class="thumb"
+             *ngFor="let v of course.courseVideos; let i = index"
+             [class.active]="v == courseService.activeCourseVideo">
+
+          <a [routerLink]="'/courses/' + course.slug + '/' + v.order">
+            <img [src]="v.image" alt="" width="120" height="64">
+            <span class="thumb-name">{{v.name}}</span>
+          </a>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>

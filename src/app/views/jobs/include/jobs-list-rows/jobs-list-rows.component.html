@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let job of jobs"
+      [style]="{'borderColor': job?.paid?.colorBorder,
+         'backgroundColor':job?.paid?.backgroundColor}">
+    <app-job-single-row [job]="job"></app-job-single-row>
+  </li>
+</ul>

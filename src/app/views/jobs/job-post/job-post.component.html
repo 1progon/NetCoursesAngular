@@ -1,0 +1,110 @@
+<div class="container">
+  <h2>Post a Job</h2>
+  <span style="color: red">* - field required.</span>
+
+  <form #jobFormRef="ngForm" (ngSubmit)="submitForm()" class="form-mw-50">
+    <div class="block">
+      <label class="required" for="name">Title</label>
+      <input
+        #nameRef="ngModel"
+        [(ngModel)]="jobForm.name"
+        [minlength]="minLength" id="name" name="name" required type="text">
+      <span class="description">Example: Senior Golang Developer</span>
+      <div *ngIf="nameRef.touched && nameRef.pristine && nameRef.invalid"
+           class="alert alert-danger mt-10">Field is required
+      </div>
+
+      <div *ngIf="nameRef.touched && nameRef.dirty && nameRef.invalid"
+           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="block">
+      <label class="required" for="level">Level of Expertise</label>
+      <input
+        #levelRef="ngModel"
+        [(ngModel)]="jobForm.level"
+        [minlength]="minLength" id="level" name="level" required type="text">
+      <span class="description">Example: Junior, Middle, Middle+, Senior</span>
+      <div *ngIf="levelRef.touched && levelRef.pristine && levelRef.invalid"
+           class="alert alert-danger mt-10">Field is required
+      </div>
+
+      <div *ngIf="levelRef.touched && levelRef.dirty && levelRef.invalid"
+           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+
+    <div class="block">
+      <label for="description">Description</label>
+      <textarea [(ngModel)]="jobForm.description"
+                id="description"
+                name="description"
+                placeholder="Some description about" rows="10"></textarea>
+    </div>
+
+
+    <div class="block">
+      <label class="required" for="location">Location</label>
+      <input #locationRef="ngModel" [(ngModel)]="jobForm.location" [minlength]="minLength" id="location"
+             name="location"
+             required
+             type="text">
+      <span class="description">Example: "Remote", "Remote, UK Only", "Los Angeles Office"</span>
+
+      <div *ngIf="locationRef.touched && locationRef.pristine && locationRef.invalid"
+           class="alert alert-danger mt-10">Field is required
+      </div>
+
+      <div *ngIf="locationRef.invalid && locationRef.dirty && locationRef.touched"
+           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="block">
+      <label for="url-to-vacancy">URL to Job Description / Application</label>
+      <input [(ngModel)]="jobForm.url" id="url-to-vacancy" name="url_to_vacancy" type="text">
+      <span class="description">Example: https://company-website.com/best-job-ever.html</span>
+    </div>
+
+    <div class="block">
+      <label for="tags">Tags (comma-separated, max. 5)</label>
+      <input [(ngModel)]="jobForm.tags" id="tags" name="tags" type="text">
+      <span class="description">Example: golang, react, js, html, mvc</span>
+    </div>
+
+    <div class="block">
+      <label class="required" for="company-name">Company Name</label>
+      <input #companyNameRef="ngModel" [(ngModel)]="jobForm.company.name"
+             [minlength]="companyMinLength"
+             id="company-name"
+             name="company_name" required
+             type="text">
+      <div *ngIf="companyNameRef.invalid && companyNameRef.touched && companyNameRef.pristine"
+           class="alert alert-danger mt-10">
+        Field is required
+      </div>
+
+      <div *ngIf="companyNameRef.invalid && companyNameRef.touched && companyNameRef.dirty"
+           class="alert alert-danger mt-10">
+        Min length {{companyMinLength}} symbols
+      </div>
+
+
+    </div>
+
+
+    <div class="block">
+      <label for="company-logo">Company Logo</label>
+      <input [(ngModel)]="jobForm.image" id="company-logo" name="company_logo" type="file">
+    </div>
+
+    <div>
+      <input [disabled]="jobFormRef.invalid || jobFormRef.untouched || jobFormRef.pristine"
+             class="btn btn-primary" type="submit" value="Post a Job">
+    </div>
+
+
+  </form>
+</div>

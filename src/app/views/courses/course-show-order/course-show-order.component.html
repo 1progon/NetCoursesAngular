@@ -1,0 +1,8 @@
+<iframe
+  *ngIf="courseService.activeCourseVideo && videoUrl"
+  [src]="videoUrl"
+  [title]="video?.name"
+  style="border: none; width: 100%;min-height: 70vh"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>
+

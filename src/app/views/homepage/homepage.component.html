@@ -1,0 +1,65 @@
+<div class="container">
+
+  <section class="hero">
+
+  </section>
+
+  <!--<section class="subscribe">-->
+  <!--  <div class="title">Create a job alert!</div>-->
+  <!--  <div>Be the first to apply - get alerts with the latest jobs sent directly to your inbox.</div>-->
+
+  <!--  <div>-->
+  <!--    <input placeholder="ex. mail@gmail.com" type="text" name="email" id="email" class="mr-10">-->
+  <!--    <input type="button" value="Subscribe" class="btn btn-primary">-->
+  <!--  </div>-->
+  <!--</section>-->
+
+
+  <!-- Jobs -->
+  <section class="latest-jobs">
+    <h2>Recent Jobs</h2>
+    <app-jobs-list-rows [jobs]="jobs"></app-jobs-list-rows>
+
+    <div class="center">
+      <a class="btn btn-yellow" routerLink="/jobs">Show All</a>
+    </div>
+  </section>
+  <!-- End jobs -->
+
+  <!-- Resumes -->
+  <section class="latest-jobs">
+    <h2>Recent Resumes</h2>
+    <!-- todo resumes add -->
+
+    <div class="center">
+      <a class="btn btn-yellow" routerLink="/resumes">Show All</a>
+    </div>
+  </section>
+  <!-- End resumes -->
+
+  <!-- Courses -->
+  <section class="latest-jobs">
+    <h2>Recent Courses</h2>
+
+    <app-card-list [courses]="courses"></app-card-list>
+
+    <div class="center">
+      <a class="btn btn-yellow" routerLink="/courses">Show All</a>
+    </div>
+  </section>
+  <!-- End courses -->
+
+
+  <!-- News -->
+  <section class="news">
+    <h2>Recent Blog News</h2>
+    <!-- TODO add news grid -->
+
+    <div class="center">
+      <a class="btn btn-yellow" routerLink="/blog">Show All</a>
+    </div>
+  </section>
+  <!-- End news -->
+
+
+</div>

@@ -1,0 +1,27 @@
+<a [routerLink]="'/jobs/' + job?.id">
+  <div class="logo">
+    <img *ngIf="job?.image"
+         [src]="job?.image"
+         alt="job image"
+         height="64"
+         width="140">
+    <img *ngIf="!job?.image" alt="" src="https://via.placeholder.com/140x64.png?text=Logo">
+    <div>{{job?.company?.name}}</div>
+
+  </div>
+
+  <div>
+    <div class="title">{{job?.name}}</div>
+    <div class="description">{{job?.description}}</div>
+    <div *ngIf="job?.tags && job?.tags !== []" class="tags">
+      <div *ngFor="let tag of job?.tags"
+           class="tag"
+           style="text-transform: uppercase">{{tag}}</div>
+    </div>
+  </div>
+  <div class="post-date">
+    <span class="skill">{{job?.level}}</span>
+    <span *ngIf="job?.createdAt && job?.updatedAt == job?.createdAt">{{job?.createdAt}}</span>
+    <span *ngIf="job?.updatedAt && job?.updatedAt != job?.createdAt">{{job?.updatedAt}}</span>
+  </div>
+</a>

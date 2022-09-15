@@ -1,0 +1,100 @@
+.Site-footer {
+  border-top: 0.0625rem solid;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.Footer {
+  background-color: #253443;
+}
+
+
+.Footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem 1.5rem 2.625rem 1.5rem;
+}
+
+.Footer-linkColumn {
+  flex: 0 0 9.5rem;
+}
+
+a.Footer-link {
+  color: white;
+  display: flex;
+  flex: 1;
+  font-size: 0.875rem;
+  line-height: 2rem;
+}
+
+a.Footer-link--primary {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+
+.Container--fullBleed {
+  margin: 0;
+  max-width: none;
+}
+
+.Footer-bottom {
+  align-items: center;
+  border-top: 0.0625rem solid;
+  display: flex;
+  margin: 0 1.5rem;
+  min-height: 4.125rem;
+}
+
+
+.Footer-gopher {
+  align-self: flex-end;
+  width: 5rem;
+}
+
+.Footer-listRow {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.Footer-listItem {
+  align-items: center;
+  display: flex;
+  flex: 1 100%;
+  justify-content: center;
+  margin: 0.4rem 0;
+  padding: 0 1rem;
+}
+
+@media only screen and (min-width: 52rem) {
+  .Footer-listItem {
+    flex: initial;
+  }
+}
+
+@media only screen and (min-width: 52rem) {
+  .Footer-listItem + .Footer-listItem {
+    border-left: 0.0625rem solid;
+  }
+}
+
+
+.Footer-listItem a:link, .Footer-listItem a:visited {
+  color: white;
+}
+
+.Footer-googleLogo {
+  align-self: flex-end;
+  height: 1.5rem;
+  margin-bottom: 1.3rem;
+  text-align: right;
+}
+

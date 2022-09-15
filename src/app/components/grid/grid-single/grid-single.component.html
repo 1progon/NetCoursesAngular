@@ -1,0 +1,7 @@
+<a [routerLink]="'/' + item.routeName + '/'+ item.slug">
+
+  <div class="card-image">
+    <img [alt]="item.name" [src]="item.image">
+  </div>
+  <div class="card-desc">{{item.description}}</div>
+</a>

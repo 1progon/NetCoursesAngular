@@ -1,0 +1,98 @@
+.Site-header {
+  background: #007d9c;
+  border-bottom: none;
+  box-shadow: 0 0.0625rem 0.125rem rgb(171 171 171 / 30%);
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+@media only screen and (min-width: 57.7rem) {
+  .header, .PlayPage {
+    padding: 0 1.5rem;
+  }
+}
+
+.Header--dark {
+  border-bottom: none;
+  color: white;
+}
+
+.Header-nav {
+  align-items: center;
+  display: flex;
+  height: 3.5rem;
+  justify-content: space-between;
+
+  a {
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 32rem) {
+  .Header-rightContent {
+    width: 100%;
+  }
+}
+
+.Header-rightContent {
+  flex: 3;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+@media only screen and (min-width: 57.7rem) {
+  .Header-menu {
+    justify-content: flex-end;
+  }
+}
+
+.Header--dark .Header-menuItem a:link, .Header--dark .Header-menuItem a:visited {
+  color: white;
+}
+
+.Header-logo {
+  display: block;
+  height: 2rem;
+  margin-right: 2.25rem;
+  width: 5.125rem;
+}
+
+.Header-menu {
+  align-items: stretch;
+  display: flex;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Header-menuItem {
+  display: none;
+}
+
+@media only screen and (min-width: 57.7rem) {
+  .Header-menuItem {
+    align-items: stretch;
+    display: inline-flex;
+    flex: none;
+  }
+}
+
+
+.Header-menuItem a:link, .Header-menuItem a:visited {
+  align-items: center;
+  border-bottom: 0.1875rem solid transparent;
+  border-top: 0.1875rem solid transparent;
+  color: black;
+  display: inline-flex;
+  margin: 0 0.3125rem;
+  padding: 0 0.9375rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+}

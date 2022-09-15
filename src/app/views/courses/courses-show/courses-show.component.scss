@@ -1,0 +1,51 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & .lead {
+    border-radius: 0.25rem;
+    border: 0.0625rem solid #c6c8ca;
+    margin-bottom: 20px;
+    padding: 1rem 1rem .5rem;
+    background-color: #f8f8f8;
+  }
+
+  article {
+    flex: 4;
+    margin-right: 20px;
+  }
+
+  .sidebar {
+    flex: 1;
+  }
+
+}
+
+.sidebar {
+
+
+  & .thumb {
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    & a {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+
+      & .thumb-name {
+        margin-left: 10px;
+        flex: 1;
+      }
+
+    }
+
+
+
+    &.active {
+      background-color: #f8f8f8;
+    }
+  }
+}
