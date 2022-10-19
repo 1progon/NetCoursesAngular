@@ -14,6 +14,11 @@ export interface Course extends BaseModel {
 
   courseVideos?: CourseVideos[];
 
+  postedByAuthor: Date;
+  updatedByAuthor?: Date;
+
+
 }
+
 
 

@@ -18,9 +18,9 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.homepageService.homepage().subscribe({
-      next: value => {
-        this.jobs = value.data.jobs;
-        this.courses = value.data.courses;
+      next: response => {
+        this.jobs = response.data.jobs;
+        this.courses = response.data.courses;
 
         this.jobs.forEach(job => {
           job.createdAt = new Date(job.createdAt).toDateString();

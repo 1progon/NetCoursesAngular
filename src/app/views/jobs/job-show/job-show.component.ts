@@ -24,6 +24,7 @@ export class JobShowComponent implements OnInit {
 
         this.jobService.getJob(value['id']).subscribe({
           next: response => {
+            console.log(response)
             this.job = response.data;
           }
         })

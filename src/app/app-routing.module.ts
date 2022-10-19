@@ -33,7 +33,7 @@ const routes: Routes = [
   // courses
   {path: 'courses', component: CoursesIndexComponent},
   {
-    path: 'courses/:slug', component: CoursesShowComponent,
+    path: 'courses/:id', component: CoursesShowComponent,
     children: [
       {path: ':order', component: CourseShowOrderComponent},
     ]

@@ -24,7 +24,7 @@ export class CoursesService {
   }
 
   // course single show page
-  getCourse(slug: string) {
-    return this.http.get<Course>(environment.apiUrl + 'courses/' + slug);
+  getCourse(id: number) {
+    return this.http.get<Response<Course>>(environment.apiUrl + 'courses/' + id);
   }
 }

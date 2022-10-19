@@ -26,6 +26,10 @@
              height="64"
              width="120">
         <p>{{course.name}}</p>
+
+        <p><span>Posted by Author: </span><span>{{course.postedByAuthor}}</span></p>
+        <p *ngIf="course.updatedByAuthor">
+          <span>Updated by Author: </span><span>{{course.updatedByAuthor}}</span></p>
       </div>
 
 
@@ -34,7 +38,7 @@
              *ngFor="let v of course.courseVideos; let i = index"
              [class.active]="v == courseService.activeCourseVideo">
 
-          <a [routerLink]="'/courses/' + course.slug + '/' + v.order">
+          <a [routerLink]="'/courses/' + course.id + '/' + v.order">
             <img [src]="v.image" alt="" width="120" height="64">
             <span class="thumb-name">{{v.name}}</span>
           </a>

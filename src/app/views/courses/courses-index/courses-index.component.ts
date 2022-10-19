@@ -16,10 +16,9 @@ export class CoursesIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getCourses().subscribe({
-      next: value => {
-        console.log(value);
+      next: response => {
 
-        this.courses = value.data.items;
+        this.courses = response.data.items;
       }
     })
   }

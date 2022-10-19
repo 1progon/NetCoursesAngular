@@ -4,17 +4,17 @@
 
   <form #jobFormRef="ngForm" (ngSubmit)="submitForm()" class="form-mw-50">
     <div class="block">
-      <label class="required" for="name">Title</label>
+      <label class="required" for="title">Title</label>
       <input
-        #nameRef="ngModel"
-        [(ngModel)]="jobForm.name"
-        [minlength]="minLength" id="name" name="name" required type="text">
+        #titleRef="ngModel"
+        [(ngModel)]="jobForm.title"
+        [minlength]="minLength" id="title" name="title" required type="text">
       <span class="description">Example: Senior Golang Developer</span>
-      <div *ngIf="nameRef.touched && nameRef.pristine && nameRef.invalid"
+      <div *ngIf="titleRef.touched && titleRef.pristine && titleRef.invalid"
            class="alert alert-danger mt-10">Field is required
       </div>
 
-      <div *ngIf="nameRef.touched && nameRef.dirty && nameRef.invalid"
+      <div *ngIf="titleRef.touched && titleRef.dirty && titleRef.invalid"
            class="alert alert-danger mt-10">Min length {{minLength}} symbols
       </div>
     </div>
@@ -23,8 +23,8 @@
       <label class="required" for="level">Level of Expertise</label>
       <input
         #levelRef="ngModel"
-        [(ngModel)]="jobForm.level"
-        [minlength]="minLength" id="level" name="level" required type="text">
+        [(ngModel)]="jobForm.levelExpertise"
+        [minlength]="minLength" id="level" name="level_expertise" required type="text">
       <span class="description">Example: Junior, Middle, Middle+, Senior</span>
       <div *ngIf="levelRef.touched && levelRef.pristine && levelRef.invalid"
            class="alert alert-danger mt-10">Field is required
@@ -37,17 +37,32 @@
 
 
     <div class="block">
-      <label for="description">Description</label>
+      <label for="description" class="required">Description</label>
       <textarea [(ngModel)]="jobForm.description"
+                required
+                #descRef="ngModel"
+                [minlength]="minLength"
                 id="description"
                 name="description"
                 placeholder="Some description about" rows="10"></textarea>
+
+      <div *ngIf="descRef.touched && descRef.pristine && descRef.invalid"
+           class="alert alert-danger mt-10">Field is required
+      </div>
+
+      <div *ngIf="descRef.invalid && descRef.dirty && descRef.touched"
+           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+      </div>
+
     </div>
 
 
     <div class="block">
       <label class="required" for="location">Location</label>
-      <input #locationRef="ngModel" [(ngModel)]="jobForm.location" [minlength]="minLength" id="location"
+      <input #locationRef="ngModel"
+             [(ngModel)]="jobForm.location"
+             [minlength]="minLength"
+             id="location"
              name="location"
              required
              type="text">
@@ -63,9 +78,23 @@
     </div>
 
     <div class="block">
-      <label for="url-to-vacancy">URL to Job Description / Application</label>
-      <input [(ngModel)]="jobForm.url" id="url-to-vacancy" name="url_to_vacancy" type="text">
+      <label for="url-to-job" class="required">URL to Job Description / Application</label>
+      <input #urlRef="ngModel"
+             [(ngModel)]="jobForm.urlToJob"
+             id="url-to-job"
+             name="url_to_job"
+             type="text"
+             required
+             [minlength]="minLength">
       <span class="description">Example: https://company-website.com/best-job-ever.html</span>
+
+      <div *ngIf="urlRef.touched && urlRef.pristine && urlRef.invalid"
+           class="alert alert-danger mt-10">Field is required
+      </div>
+
+      <div *ngIf="urlRef.invalid && urlRef.dirty && urlRef.touched"
+           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+      </div>
     </div>
 
     <div class="block">
@@ -76,7 +105,7 @@
 
     <div class="block">
       <label class="required" for="company-name">Company Name</label>
-      <input #companyNameRef="ngModel" [(ngModel)]="jobForm.company.name"
+      <input #companyNameRef="ngModel" [(ngModel)]="jobForm.companyName"
              [minlength]="companyMinLength"
              id="company-name"
              name="company_name" required
@@ -96,8 +125,10 @@
 
 
     <div class="block">
-      <label for="company-logo">Company Logo</label>
-      <input [(ngModel)]="jobForm.image" id="company-logo" name="company_logo" type="file">
+      <label for="logo">Company Logo</label>
+      <input (change)="onFileChange($event)"
+             id="logo"
+             type="file">
     </div>
 
     <div>

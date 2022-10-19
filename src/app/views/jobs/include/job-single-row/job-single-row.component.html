@@ -1,11 +1,17 @@
 <a [routerLink]="'/jobs/' + job?.id">
   <div class="logo">
-    <img *ngIf="job?.image"
-         [src]="job?.image"
+    <!-- if image -->
+    <img *ngIf="job?.company?.logoImagePath"
+         [src]="'https://localhost:4000' + job?.company?.logoImagePath"
          alt="job image"
          height="64"
          width="140">
-    <img *ngIf="!job?.image" alt="" src="https://via.placeholder.com/140x64.png?text=Logo">
+    <!-- else no image -->
+    <img *ngIf="!job?.company?.logoImagePath"
+         [alt]="job?.name"
+         src="https://via.placeholder.com/140x64.png?text=Logo">
+
+
     <div>{{job?.company?.name}}</div>
 
   </div>

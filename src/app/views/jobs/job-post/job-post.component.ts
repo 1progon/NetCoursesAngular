@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Job} from "../../../interfaces/jobs/Job";
 import {JobsService} from "../../../services/jobs/jobs.service";
+import {PostJobDto} from "../../../dto/jobs/postJobDto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-job-post',
@@ -9,24 +10,33 @@ import {JobsService} from "../../../services/jobs/jobs.service";
 })
 export class JobPostComponent implements OnInit {
 
-  jobForm: Job = <Job>{
-    company: {}
-  }
+  jobForm: PostJobDto = <PostJobDto>{};
   minLength = 5;
   companyMinLength = 3;
+  fileLogo: File = <File>{};
 
-  constructor(private jobService: JobsService) {
+  constructor(private jobService: JobsService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
   submitForm() {
-    console.log(this.jobForm)
-    this.jobService.postJob(this.jobForm).subscribe({
-      next: value => {
-        console.log(value)
-      }
-    })
+
+    this.jobService.postJob(this.jobForm, this.fileLogo)
+      .subscribe({
+        next: value => {
+          if (value.responseCode == 200) {
+            this.router.navigateByUrl('/jobs/' + value.data.id).finally();
+          }
+        }
+      })
+  }
+
+  onFileChange(e: Event) {
+    let files = (<HTMLInputElement>e.target).files;
+    if (files?.[0]) {
+      this.fileLogo = files[0];
+    }
   }
 }
