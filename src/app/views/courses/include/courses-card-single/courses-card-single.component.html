@@ -1,0 +1,10 @@
+<div class="card">
+  <img [src]="domainUrl + course.image" width="250" alt="image" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{course.name}}</h5>
+    <p class="card-text">{{course.description}}</p>
+    <a [routerLink]="'/courses/'+ course.id"
+       class="btn btn-primary">Open</a>
+    <p>Language: {{course.language?.name}}</p>
+  </div>
+</div>
