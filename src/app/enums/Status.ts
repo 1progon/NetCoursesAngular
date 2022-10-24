@@ -1,4 +1,4 @@
-export enum JobStatus {
+export enum Status {
   Undefined = 0,
   Moderation = 1,
   DeclinedModeration = 2,
