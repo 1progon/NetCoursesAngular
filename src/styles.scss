@@ -40,6 +40,14 @@ body {
 
       form {
 
+        label.required {
+          &::after {
+            content: '*';
+            color: #ff0000;
+            margin: 0 3px;
+          }
+        }
+
         input.ng-touched.ng-pristine.ng-invalid,
         textarea.ng-touched.ng-pristine.ng-invalid {
           border-color: red;
