@@ -30,14 +30,13 @@ export class CoursesShowComponent implements OnInit {
   ngOnInit(): void {
     // get param slug
     this.route.params.subscribe({
-      next: value => {
+      next: params => {
 
         // get single course by id param
-        this.courseService.getCourse(value['id'])
+        this.courseService.getCourse(params['id'])
           .subscribe({
             next: response => {
               this.course = response.data;
-              console.log(response)
 
               // if course single video
               if (response.data.videoType == CourseVideoType.SingleVideo) {
@@ -51,7 +50,7 @@ export class CoursesShowComponent implements OnInit {
                   this.courseService.activeCourse = response.data;
                   this.courseService.activeCourseVideo = response.data.courseVideos[0];
                   this.router
-                    .navigateByUrl('/courses/' + value['id'] + '/' + response.data.courseVideos[0].order)
+                    .navigateByUrl('/courses/' + params['id'] + '/' + response.data.courseVideos[0].order)
                     .finally();
                 }
               }
