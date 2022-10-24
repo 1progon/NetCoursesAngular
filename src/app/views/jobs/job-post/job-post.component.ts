@@ -31,6 +31,9 @@ export class JobPostComponent implements OnInit {
           if (response.responseCode == 200) {
             this.router.navigateByUrl('/jobs/' + response.data.id).finally();
           }
+        },
+        error: err => {
+          console.log(err)
         }
       })
   }
