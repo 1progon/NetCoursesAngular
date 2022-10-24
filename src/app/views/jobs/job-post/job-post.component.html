@@ -2,121 +2,128 @@
   <h2>Post a Job</h2>
   <span style="color: red">* - field required.</span>
 
-  <form #jobFormRef="ngForm" (ngSubmit)="submitForm()" class="form-mw-50">
-    <div class="block">
-      <label class="required" for="title">Title</label>
+  <form #jobFormRef="ngForm" (ngSubmit)="submitForm()" class="w-50">
+    <div class="mb-3">
+      <label class="required form-label" for="title">Title</label>
       <input
+        class="form-control"
         #titleRef="ngModel"
         [(ngModel)]="jobForm.title"
         [minlength]="minLength" id="title" name="title" required type="text">
-      <span class="description">Example: Senior Golang Developer</span>
+      <div class="form-text">Example: Senior Golang Developer</div>
       <div *ngIf="titleRef.touched && titleRef.pristine && titleRef.invalid"
-           class="alert alert-danger mt-10">Field is required
+           class="alert alert-danger mt-1">Field is required
       </div>
 
       <div *ngIf="titleRef.touched && titleRef.dirty && titleRef.invalid"
-           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
       </div>
     </div>
 
-    <div class="block">
-      <label class="required" for="level">Level of Expertise</label>
+    <div class="mb-3">
+      <label class="required form-label" for="level">Level of Expertise</label>
       <input
+        class="form-control"
         #levelRef="ngModel"
         [(ngModel)]="jobForm.levelExpertise"
         [minlength]="minLength" id="level" name="level_expertise" required type="text">
-      <span class="description">Example: Junior, Middle, Middle+, Senior</span>
+      <div class="form-text">Example: Junior, Middle, Middle+, Senior</div>
       <div *ngIf="levelRef.touched && levelRef.pristine && levelRef.invalid"
-           class="alert alert-danger mt-10">Field is required
+           class="alert alert-danger mt-1">Field is required
       </div>
 
       <div *ngIf="levelRef.touched && levelRef.dirty && levelRef.invalid"
-           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
       </div>
     </div>
 
 
-    <div class="block">
-      <label for="description" class="required">Description</label>
+    <div class="mb-3">
+      <label for="description" class="required form-label">Description</label>
       <textarea [(ngModel)]="jobForm.description"
                 required
                 #descRef="ngModel"
+                class="form-control"
                 [minlength]="minLength"
                 id="description"
                 name="description"
                 placeholder="Some description about" rows="10"></textarea>
 
       <div *ngIf="descRef.touched && descRef.pristine && descRef.invalid"
-           class="alert alert-danger mt-10">Field is required
+           class="alert alert-danger mt-1">Field is required
       </div>
 
       <div *ngIf="descRef.invalid && descRef.dirty && descRef.touched"
-           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
       </div>
 
     </div>
 
 
-    <div class="block">
-      <label class="required" for="location">Location</label>
+    <div class="mb-3">
+      <label class="required form-label" for="location">Location</label>
       <input #locationRef="ngModel"
              [(ngModel)]="jobForm.location"
              [minlength]="minLength"
              id="location"
              name="location"
+             class="form-control"
              required
              type="text">
-      <span class="description">Example: "Remote", "Remote, UK Only", "Los Angeles Office"</span>
+      <div class="form-text">Example: "Remote", "Remote, UK Only", "Los Angeles Office"</div>
 
       <div *ngIf="locationRef.touched && locationRef.pristine && locationRef.invalid"
-           class="alert alert-danger mt-10">Field is required
+           class="alert alert-danger mt-1">Field is required
       </div>
 
       <div *ngIf="locationRef.invalid && locationRef.dirty && locationRef.touched"
-           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
       </div>
     </div>
 
-    <div class="block">
-      <label for="url-to-job" class="required">URL to Job Description / Application</label>
+    <div class="mb-3">
+      <label for="url-to-job" class="required form-label">URL to Job Description / Application</label>
       <input #urlRef="ngModel"
              [(ngModel)]="jobForm.urlToJob"
              id="url-to-job"
+             class="form-control"
              name="url_to_job"
              type="text"
              required
              [minlength]="minLength">
-      <span class="description">Example: https://company-website.com/best-job-ever.html</span>
+      <div class="form-text">Example: https://company-website.com/best-job-ever.html</div>
 
       <div *ngIf="urlRef.touched && urlRef.pristine && urlRef.invalid"
-           class="alert alert-danger mt-10">Field is required
+           class="alert alert-danger mt-1">Field is required
       </div>
 
       <div *ngIf="urlRef.invalid && urlRef.dirty && urlRef.touched"
-           class="alert alert-danger mt-10">Min length {{minLength}} symbols
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
       </div>
     </div>
 
-    <div class="block">
-      <label for="tags">Tags (comma-separated, max. 5)</label>
-      <input [(ngModel)]="jobForm.tags" id="tags" name="tags" type="text">
-      <span class="description">Example: golang, react, js, html, mvc</span>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags (comma-separated, max. 5)</label>
+      <input [(ngModel)]="jobForm.tags" id="tags" name="tags" type="text"
+             class="form-control">
+      <div class="form-text">Example: golang, react, js, html, mvc</div>
     </div>
 
-    <div class="block">
-      <label class="required" for="company-name">Company Name</label>
+    <div class="mb-3">
+      <label class="required form-label" for="company-name">Company Name</label>
       <input #companyNameRef="ngModel" [(ngModel)]="jobForm.companyName"
              [minlength]="companyMinLength"
              id="company-name"
+             class="form-control"
              name="company_name" required
              type="text">
       <div *ngIf="companyNameRef.invalid && companyNameRef.touched && companyNameRef.pristine"
-           class="alert alert-danger mt-10">
+           class="alert alert-danger mt-1">
         Field is required
       </div>
 
       <div *ngIf="companyNameRef.invalid && companyNameRef.touched && companyNameRef.dirty"
-           class="alert alert-danger mt-10">
+           class="alert alert-danger mt-1">
         Min length {{companyMinLength}} symbols
       </div>
 
@@ -124,10 +131,11 @@
     </div>
 
 
-    <div class="block">
-      <label for="logo">Company Logo</label>
+    <div class="mb-3">
+      <label for="logo" class="form-label">Company Logo</label>
       <input (change)="onFileChange($event)"
              id="logo"
+             class="form-control"
              type="file">
     </div>
 
