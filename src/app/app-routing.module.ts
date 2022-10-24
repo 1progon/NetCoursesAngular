@@ -16,6 +16,7 @@ import {BlogShowComponent} from "./views/blog/blog-show/blog-show.component";
 import {AddResumeComponent} from "./views/resumes/add-resume/add-resume.component";
 import {PagesShowComponent} from "./views/pages/pages-show/pages-show.component";
 import {CourseShowOrderComponent} from "./views/courses/course-show-order/course-show-order.component";
+import {CoursePostComponent} from "./views/courses/course-post/course-post.component";
 
 const routes: Routes = [
   {path: '', component: HomepageComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
 
   // courses
   {path: 'courses', component: CoursesIndexComponent},
+  {path: 'add-course', component: CoursePostComponent},
   {
     path: 'courses/:id', component: CoursesShowComponent,
     children: [
