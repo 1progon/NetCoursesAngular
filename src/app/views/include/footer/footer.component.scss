@@ -1,26 +1,26 @@
-.Site-footer {
+.site-footer {
   border-top: 0.0625rem solid;
   color: white;
   font-size: 0.875rem;
 }
 
-.Footer {
+.footer {
   background-color: #253443;
 }
 
 
-.Footer-links {
+.footer-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 2rem 1.5rem 2.625rem 1.5rem;
 }
 
-.Footer-linkColumn {
+.footer-link-column {
   flex: 0 0 9.5rem;
 }
 
-a.Footer-link {
+a.footer-link {
   color: white;
   display: flex;
   flex: 1;
@@ -28,7 +28,7 @@ a.Footer-link {
   line-height: 2rem;
 }
 
-a.Footer-link--primary {
+a.footer-link--primary {
   font-size: 1.125rem;
   line-height: 1.75rem;
   margin-bottom: 0.5rem;
@@ -36,12 +36,12 @@ a.Footer-link--primary {
 }
 
 
-.Container--fullBleed {
+.container--fullBleed {
   margin: 0;
   max-width: none;
 }
 
-.Footer-bottom {
+.footer-bottom {
   align-items: center;
   border-top: 0.0625rem solid;
   display: flex;
@@ -55,7 +55,7 @@ a.Footer-link--primary {
   width: 5rem;
 }
 
-.Footer-listRow {
+.footer-listRow {
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -65,7 +65,7 @@ a.Footer-link--primary {
   text-align: center;
 }
 
-.Footer-listItem {
+.footer-listItem {
   align-items: center;
   display: flex;
   flex: 1 100%;
@@ -75,19 +75,19 @@ a.Footer-link--primary {
 }
 
 @media only screen and (min-width: 52rem) {
-  .Footer-listItem {
+  .footer-listItem {
     flex: initial;
   }
 }
 
 @media only screen and (min-width: 52rem) {
-  .Footer-listItem + .Footer-listItem {
+  .footer-listItem + .footer-listItem {
     border-left: 0.0625rem solid;
   }
 }
 
 
-.Footer-listItem a:link, .Footer-listItem a:visited {
+.footer-listItem a:link, .footer-listItem a:visited {
   color: white;
 }
 

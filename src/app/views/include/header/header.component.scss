@@ -1,4 +1,4 @@
-.Site-header {
+.site-header {
   background: #007d9c;
   border-bottom: none;
   box-shadow: 0 0.0625rem 0.125rem rgb(171 171 171 / 30%);
@@ -14,12 +14,12 @@
   }
 }
 
-.Header--dark {
+.header--dark {
   border-bottom: none;
   color: white;
 }
 
-.Header-nav {
+.header-nav {
   align-items: center;
   display: flex;
   height: 3.5rem;
@@ -31,12 +31,12 @@
 }
 
 @media only screen and (min-width: 32rem) {
-  .Header-rightContent {
+  .header-right-content {
     width: 100%;
   }
 }
 
-.Header-rightContent {
+.header-right-content {
   flex: 3;
   align-items: center;
   display: flex;
@@ -46,12 +46,12 @@
 }
 
 @media only screen and (min-width: 57.7rem) {
-  .Header-menu {
+  .header-menu {
     justify-content: flex-end;
   }
 }
 
-.Header--dark .Header-menuItem a:link, .Header--dark .Header-menuItem a:visited {
+.header--dark .header-menu-item a:link, .header--dark .header-menu-item a:visited {
   color: white;
 }
 
@@ -62,7 +62,7 @@
   width: 5.125rem;
 }
 
-.Header-menu {
+.header-menu {
   align-items: stretch;
   display: flex;
   height: 100%;
@@ -71,12 +71,12 @@
   padding: 0;
 }
 
-.Header-menuItem {
+.header-menu-item {
   display: none;
 }
 
 @media only screen and (min-width: 57.7rem) {
-  .Header-menuItem {
+  .header-menu-item {
     align-items: stretch;
     display: inline-flex;
     flex: none;
@@ -84,7 +84,7 @@
 }
 
 
-.Header-menuItem a:link, .Header-menuItem a:visited {
+.header-menu-item a:link, .header-menu-item a:visited {
   align-items: center;
   border-bottom: 0.1875rem solid transparent;
   border-top: 0.1875rem solid transparent;
