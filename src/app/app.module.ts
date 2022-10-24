@@ -59,6 +59,7 @@ import {CoursesCardSingleComponent} from "./views/courses/include/courses-card-s
     GridListComponent,
     GridSingleComponent,
     CourseShowOrderComponent,
+    CoursePostComponent,
   ],
   imports: [
     BrowserModule,
