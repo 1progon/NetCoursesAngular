@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {JobsService} from "../../../services/jobs/jobs.service";
 import {Job} from "../../../interfaces/jobs/Job";
-import {JobStatus} from "../../../enums/jobs/JobStatus";
+import {Status} from "../../../enums/Status";
 import {Response} from "../../../interfaces/response/Response";
 import {HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
@@ -16,8 +16,8 @@ export class JobShowComponent implements OnInit {
 
   id?: string;
   job?: Job;
-  activeJobStatus: JobStatus = JobStatus.Active;
-  statuses: typeof JobStatus = JobStatus;
+  activeJobStatus: Status = Status.Active;
+  statuses: typeof Status = Status;
   domainUrl = environment.domainUrl;
 
 
