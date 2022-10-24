@@ -132,8 +132,9 @@
 
 
     <div class="mb-3">
-      <label for="logo" class="form-label">Company Logo</label>
+      <label for="logo" class="required form-label">Company Logo</label>
       <input (change)="onFileChange($event)"
+             required
              id="logo"
              class="form-control"
              type="file">
