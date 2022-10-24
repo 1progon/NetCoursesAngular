@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {JobsService} from "../../../services/jobs/jobs.service";
 import {Job} from "../../../interfaces/jobs/Job";
 
@@ -13,7 +13,10 @@ export class JobShowComponent implements OnInit {
   id?: string;
   job?: Job;
 
-  constructor(private route: ActivatedRoute, private jobService: JobsService) {
+
+  constructor(private route: ActivatedRoute,
+              private jobService: JobsService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
