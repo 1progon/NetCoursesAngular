@@ -56,6 +56,11 @@ export class CoursesShowComponent implements OnInit {
               }
 
 
+            },
+            error: (err: HttpErrorResponse) => {
+              if (err.status == 404) {
+                this.router.navigateByUrl('/404').finally();
+              }
             }
           })
       }
