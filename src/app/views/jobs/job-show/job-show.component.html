@@ -1,4 +1,10 @@
-<div class="container">
+<div *ngIf="job?.status != activeJobStatus" class="container my-10 alert alert-warning">
+  <ng-container *ngFor="let st of statuses | keyvalue">
+    <ng-container *ngIf="st.value == job?.status">Status: {{st.key}}</ng-container>
+  </ng-container>
+</div>
+
+<div class="container" [style]="job?.status != activeJobStatus ? 'opacity: 0.3': '' ">
   <h2>{{job?.name}}</h2>
 
 
