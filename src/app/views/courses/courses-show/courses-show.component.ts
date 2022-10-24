@@ -4,6 +4,8 @@ import {CoursesService} from "../../../services/courses/courses.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import {CourseVideoType} from "../../../enums/courses/CourseVideoType";
+import {HttpErrorResponse} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-courses-show',
@@ -20,6 +22,8 @@ export class CoursesShowComponent implements OnInit {
 
   course: Course = <Course>{};
   videoUrl?: SafeResourceUrl;
+
+  domainUrl = environment.domainUrl;
 
   links: any;
 
