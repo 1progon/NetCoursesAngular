@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Job} from "../../../../interfaces/jobs/Job";
+import {environment} from "../../../../../environments/environment";
 
 @Component({
   selector: 'app-job-single-row',
@@ -11,6 +12,8 @@ export class JobSingleRowComponent implements OnInit {
 
   constructor() {
   }
+
+  domainUrl = environment.domainUrl;
 
   ngOnInit(): void {
   }

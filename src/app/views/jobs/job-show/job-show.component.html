@@ -18,10 +18,10 @@
       <p>
         <!-- if image -->
         <img *ngIf="job?.company?.logoImagePath"
-              [alt]="job?.name"
-              [src]="'https://localhost:4000' + job?.company?.logoImagePath"
-              height="64"
-              width="140">
+             [alt]="job?.name"
+             [src]="domainUrl + job?.company?.logoImagePath"
+             height="64"
+             width="140">
         <!-- else no image -->
         <img *ngIf="!job?.company?.logoImagePath" alt="" src="https://via.placeholder.com/140x64.png?text=Logo">
 

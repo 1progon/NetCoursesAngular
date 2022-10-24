@@ -5,6 +5,7 @@ import {Job} from "../../../interfaces/jobs/Job";
 import {JobStatus} from "../../../enums/jobs/JobStatus";
 import {Response} from "../../../interfaces/response/Response";
 import {HttpErrorResponse} from "@angular/common/http";
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-job-show',
@@ -17,6 +18,7 @@ export class JobShowComponent implements OnInit {
   job?: Job;
   activeJobStatus: JobStatus = JobStatus.Active;
   statuses: typeof JobStatus = JobStatus;
+  domainUrl = environment.domainUrl;
 
 
   constructor(private route: ActivatedRoute,

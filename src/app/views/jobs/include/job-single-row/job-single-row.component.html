@@ -2,7 +2,7 @@
   <div class="logo">
     <!-- if image -->
     <img *ngIf="job?.company?.logoImagePath"
-         [src]="'https://localhost:4000' + job?.company?.logoImagePath"
+         [src]="domainUrl + job?.company?.logoImagePath"
          alt="job image"
          height="64"
          width="140">
