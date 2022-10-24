@@ -5,6 +5,7 @@ import {Response} from "../../interfaces/response/Response";
 import {Course} from "../../interfaces/courses/Course";
 import {GetItemsDto} from "../../dto/getItemsDto";
 import {CourseVideos} from "../../interfaces/courses/CourseVideos";
+import {PostCourseDto} from "../../dto/courses/postCourseDto";
 
 
 @Injectable({
@@ -26,5 +27,17 @@ export class CoursesService {
   // course single show page
   getCourse(id: number) {
     return this.http.get<Response<Course>>(environment.apiUrl + 'courses/' + id);
+  }
+
+  // post a job from form
+  postCourse(coursePostDto: PostCourseDto, image: File) {
+
+    let data = new FormData();
+    data.append('file', image);
+    data.append('courseDto', JSON.stringify(coursePostDto));
+
+    return this.http.post<Response<Course>>(environment.apiUrl + 'courses',
+      data
+    )
   }
 }
