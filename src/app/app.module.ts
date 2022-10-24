@@ -24,11 +24,12 @@ import {BlogIndexComponent} from './views/blog/blog-index/blog-index.component';
 import {BlogShowComponent} from './views/blog/blog-show/blog-show.component';
 import {AddResumeComponent} from './views/resumes/add-resume/add-resume.component';
 import {PagesShowComponent} from './views/pages/pages-show/pages-show.component';
-import {CardSingleComponent} from './views/courses/include/card-single/card-single.component';
-import {CardListComponent} from "./views/courses/include/card-list/card-list.component";
 import {GridListComponent} from './components/grid/grid-list/grid-list.component';
 import {GridSingleComponent} from './components/grid/grid-single/grid-single.component';
-import { CourseShowOrderComponent } from './views/courses/course-show-order/course-show-order.component';
+import {CourseShowOrderComponent} from './views/courses/course-show-order/course-show-order.component';
+import {CoursePostComponent} from './views/courses/course-post/course-post.component';
+import {CoursesCardListComponent} from "./views/courses/include/courses-card-list/courses-card-list.component";
+import {CoursesCardSingleComponent} from "./views/courses/include/courses-card-single/courses-card-single.component";
 
 @NgModule({
   declarations: [
@@ -52,9 +53,9 @@ import { CourseShowOrderComponent } from './views/courses/course-show-order/cour
     BlogShowComponent,
     AddResumeComponent,
     PagesShowComponent,
-    CardListComponent,
-    CardSingleComponent,
-    CardListComponent,
+    CoursesCardListComponent,
+    CoursesCardSingleComponent,
+    CoursesCardListComponent,
     GridListComponent,
     GridSingleComponent,
     CourseShowOrderComponent,
