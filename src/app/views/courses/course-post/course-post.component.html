@@ -1,0 +1,175 @@
+<div class="container">
+  <h2>Post a Course</h2>
+  <span style="color: red">* - field required.</span>
+
+  <form #courseFormRef="ngForm" (ngSubmit)="submitForm()" class="w-50">
+    <div class="mb-3">
+      <label class="required form-label" for="title">Name</label>
+      <input class="form-control"
+             #nameRef="ngModel"
+             [(ngModel)]="courseForm.name"
+             [minlength]="minLength"
+             id="title"
+             name="name"
+             required
+             type="text">
+      <div class="form-text">Example: Senior Golang Developer</div>
+      <div *ngIf="nameRef.touched && nameRef.pristine && nameRef.invalid"
+           class="alert alert-danger mt-1">Field is required
+      </div>
+
+      <div *ngIf="nameRef.touched && nameRef.dirty && nameRef.invalid"
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="url-to-course" class="form-label">URL to Course (Link)</label>
+      <input #linkRef="ngModel"
+             [(ngModel)]="courseForm.link"
+             id="url-to-course"
+             class="form-control"
+             name="link"
+             type="text"
+             [minlength]="minLength">
+      <div class="form-text">Example: https://course-url.com/course.html</div>
+
+      <div *ngIf="linkRef.invalid && linkRef.dirty && linkRef.touched"
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="url-to-video-link" class="form-label">URL to Video (VideoLink)</label>
+      <input #videoLinkRef="ngModel"
+             [(ngModel)]="courseForm.videoLink"
+             id="url-to-video-link"
+             class="form-control"
+             name="video_link"
+             type="text"
+             [minlength]="minLength">
+      <div class="form-text">Example: https://youtube.com/link</div>
+
+      <div *ngIf="videoLinkRef.invalid && videoLinkRef.dirty && videoLinkRef.touched"
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="description" class="required form-label">Description</label>
+      <textarea [(ngModel)]="courseForm.description"
+                required
+                #descRef="ngModel"
+                class="form-control"
+                [minlength]="minLength"
+                id="description"
+                name="description"
+                placeholder="Some description about" rows="10"></textarea>
+
+      <div *ngIf="descRef.touched && descRef.pristine && descRef.invalid"
+           class="alert alert-danger mt-1">Field is required
+      </div>
+
+      <div *ngIf="descRef.invalid && descRef.dirty && descRef.touched"
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="article" class="form-label">Article</label>
+      <textarea [(ngModel)]="courseForm.article"
+                #articleRef="ngModel"
+                class="form-control"
+                [minlength]="minLength"
+                id="article"
+                name="article"
+                placeholder="Some description about"
+                rows="10"></textarea>
+
+      <div *ngIf="articleRef.touched && articleRef.pristine && articleRef.invalid"
+           class="alert alert-danger mt-1">Field is required
+      </div>
+
+      <div *ngIf="articleRef.invalid && articleRef.dirty && articleRef.touched"
+           class="alert alert-danger mt-1">Min length {{minLength}} symbols
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="posted-by-author" class="required form-label">Posted by Author Date</label>
+      <input #postedByAuthorDate="ngModel"
+             [(ngModel)]="courseForm.postedByAuthor"
+             id="posted-by-author"
+             class="form-control"
+             name="posted_by_author"
+             type="date"
+             required
+             [minlength]="minLength">
+      <div class="form-text">Date Posted by Author on internet</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="videoType" class="required form-label">Course Type</label>
+      <select name="videoType"
+              id="videoType"
+              #videoTypeRef="ngModel"
+              class="form-select"
+              required
+              [(ngModel)]="courseForm.videoType">
+        <option [ngValue]="typeValue"
+                *ngFor="let typeValue of videoTypesValues">{{videoTypes[typeValue]}}</option>
+      </select>
+      <div class="form-text">Video Type</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="videoSource" class="required form-label">Video Source type</label>
+      <select name="videoSource"
+              id="videoSource"
+              #videoSourceRef="ngModel"
+              class="form-select"
+              required
+              [(ngModel)]="courseForm.videoSource">
+        <option [ngValue]="sourceValue"
+                *ngFor="let sourceValue of videoSourcesValues">{{videoSources[sourceValue]}}</option>
+      </select>
+
+      <div class="form-text">Video Sourse</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="language-id" class="required form-label">Language</label>
+      <select name="language_id"
+              id="language-id"
+              #languageRef="ngModel"
+              class="form-select"
+              required
+              [(ngModel)]="courseForm.languageId">
+        <option *ngFor="let lang of languages"
+                [ngValue]="lang.id">{{lang.name}}</option>
+      </select>
+
+      <div class="form-text">Language select</div>
+    </div>
+
+    {{courseForm.languageId | json}}
+
+
+    <div class="mb-3">
+      <label for="image" class="required form-label">Image</label>
+      <input (change)="onFileChange($event)"
+             required
+             id="image"
+             class="form-control"
+             type="file">
+    </div>
+
+    <div>
+      <input [disabled]="courseFormRef.invalid || courseFormRef.untouched || courseFormRef.pristine"
+             class="btn btn-primary" type="submit" value="Post a course">
+    </div>
+
+
+  </form>
+</div>
