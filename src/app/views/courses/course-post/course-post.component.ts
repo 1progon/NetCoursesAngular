@@ -103,10 +103,12 @@ export class CoursePostComponent implements OnInit {
   }
 
   onFileChange(e: Event) {
-    let files = (<HTMLInputElement>e.target).files;
 
-    if (files?.[0]) {
-      this.courseImage = files[0];
+    let file = (<HTMLInputElement>e.target).files?.item(0);
+
+    if (file) {
+      this.courseImage = file;
+      this.uploadedImageUrl = this.san.bypassSecurityTrustUrl(URL.createObjectURL(file));
     }
 
 
