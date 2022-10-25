@@ -37,6 +37,7 @@ export class CoursesShowComponent implements OnInit {
         this.courseService.getCourse(params['id'])
           .subscribe({
             next: response => {
+              // set data to course model
               this.course = response.data;
 
               // if course single video
@@ -56,7 +57,7 @@ export class CoursesShowComponent implements OnInit {
                 }
               }
 
-
+              // set sanitized article html
               this.sanitizedArticle = this.sanitizer.bypassSecurityTrustHtml(this.course.article ?? '');
 
 
