@@ -165,6 +165,8 @@
     <div class="mb-3">
       <label for="image" class="required form-label">Image</label>
       <input (change)="onFileChange($event)"
+             name="localFile"
+             [(ngModel)]="localFile"
              required
              id="image"
              class="form-control"
