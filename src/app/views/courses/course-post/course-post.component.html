@@ -173,6 +173,11 @@
              type="file">
     </div>
 
+    <div class="mb-3">
+      <img *ngIf="uploadedImageUrl"
+           [src]="uploadedImageUrl" width="200" alt=""/>
+    </div>
+
     <div class="mb-3"
          *ngIf="isClipSet && fromClipBoard?.image">
       <input (click)="copyImageUrlToClipboard()"
