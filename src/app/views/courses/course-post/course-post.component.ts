@@ -59,6 +59,25 @@ export class CoursePostComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // get from clipboard
+    this.route.queryParams.subscribe({
+      next: value => {
+        if (value['code'] == environment.code) {
+
+          window.addEventListener('DOMContentLoaded', () => {
+            navigator.clipboard.readText()
+              .then(clip => {
+                this.fromClipBoard = JSON.parse(clip);
+                this.isClipSet = true;
+              })
+          })
+
+
+        }
+      }
+    })
+
+
     this.langService.getLanguages()
       .subscribe({
         next: value => {
