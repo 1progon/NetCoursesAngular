@@ -5,9 +5,11 @@ import {CourseVideoSource} from "../../../enums/courses/CourseVideoSource";
 import {CoursesService} from "../../../services/courses/courses.service";
 import {Response} from "../../../interfaces/response/Response";
 import {Course} from "../../../interfaces/courses/Course";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Language} from "../../../interfaces/Language";
 import {LanguagesService} from "../../../services/languages.service";
+import {environment} from "../../../../environments/environment";
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-course-post',
@@ -18,7 +20,9 @@ export class CoursePostComponent implements OnInit {
 
   constructor(private service: CoursesService,
               private router: Router,
-              private langService: LanguagesService) {
+              private langService: LanguagesService,
+              private route: ActivatedRoute,
+              private san: DomSanitizer) {
   }
 
   courseForm: PostCourseDto = <PostCourseDto>{
