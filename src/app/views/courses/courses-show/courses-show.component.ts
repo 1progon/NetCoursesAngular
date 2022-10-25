@@ -60,6 +60,24 @@ export class CoursesShowComponent implements OnInit {
               // set sanitized article html
               this.sanitizedArticle = this.sanitizer.bypassSecurityTrustHtml(this.course.article ?? '');
 
+              // generate time-code links and add click listener
+              setTimeout(() => {
+                let links = document.querySelectorAll('a.time-code-link[data-time]');
+                console.log(links)
+                links.forEach(item => {
+                  item.addEventListener('click', () => {
+
+                    // set sanitized video frame src url with autoplay
+                    this.videoUrl = this.sanitizer
+                      .bypassSecurityTrustResourceUrl(this.course.videoLink
+                        + '?start=' + (<HTMLElement>item).dataset["time"] + '&autoplay=1');
+
+                    // scroll to video frame
+                    document.getElementById('video-frame')?.scrollIntoView();
+                  });
+                })
+              }, 50)
+
 
             },
             error: (err: HttpErrorResponse) => {
