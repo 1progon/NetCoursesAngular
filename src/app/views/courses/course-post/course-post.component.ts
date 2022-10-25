@@ -41,6 +41,22 @@ export class CoursePostComponent implements OnInit {
 
   languages: Language[] = [];
 
+  dateInForm: string = '';
+
+  fromClipBoard?: {
+    title: string,
+    desc: string,
+    date: string,
+    videoId: string,
+    image: string
+  };
+
+  isClipSet = false;
+
+  uploadedImageUrl?: string | SafeUrl;
+  isCopiedLink = false;
+  localFile: any = '';
+
 
   ngOnInit(): void {
     this.langService.getLanguages()
