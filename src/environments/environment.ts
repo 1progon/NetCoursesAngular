@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'https://localhost:4000/api/v1/',
   domainUrl: 'https://localhost:4000',
+  code: 'jhewkljhk45h34kjh6kj45h364jkh64l3jh64jh6lkj2hkjkjjesgkjrghkjh43kjh35kjnjkn',
+
 };
 
 /*
