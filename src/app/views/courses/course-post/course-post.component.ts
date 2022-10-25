@@ -111,4 +111,27 @@ export class CoursePostComponent implements OnInit {
 
 
   }
+
+  setData() {
+    this.courseForm.name = this.fromClipBoard?.title ?? '';
+    this.courseForm.description = this.fromClipBoard?.desc ?? '';
+    this.courseForm.postedByAuthor = new Date(this.fromClipBoard?.date ?? '');
+    this.dateInForm = this.fromClipBoard?.date ?? '';
+    this.courseForm.videoLink = 'https://www.youtube.com/embed/' + this.fromClipBoard?.videoId;
+
+    this.copyImageUrlToClipboard();
+  }
+
+  copyImageUrlToClipboard() {
+    navigator.clipboard.writeText(this.fromClipBoard?.image ?? '').finally();
+    this.isCopiedLink = true;
+
+    setTimeout(() => {
+      this.isCopiedLink = false;
+    }, 500)
+  }
+
+  changeDate() {
+    this.courseForm.postedByAuthor = new Date(this.dateInForm);
+  }
 }
