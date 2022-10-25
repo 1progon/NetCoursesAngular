@@ -16,7 +16,7 @@
       <div class="lead">{{course.description}}</div>
 
 
-      <article>{{course.article}}</article>
+      <article [innerHTML]="sanitizedArticle"></article>
     </article>
 
     <div class="sidebar">

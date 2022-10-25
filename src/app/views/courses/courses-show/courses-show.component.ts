@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Course} from "../../../interfaces/courses/Course";
 import {CoursesService} from "../../../services/courses/courses.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
+import {DomSanitizer, SafeHtml, SafeResourceUrl} from "@angular/platform-browser";
 import {CourseVideoType} from "../../../enums/courses/CourseVideoType";
 import {HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
@@ -24,6 +24,7 @@ export class CoursesShowComponent implements OnInit {
   videoUrl?: SafeResourceUrl;
 
   domainUrl = environment.domainUrl;
+  sanitizedArticle: SafeHtml = '';
 
   links: any;
 
@@ -54,6 +55,9 @@ export class CoursesShowComponent implements OnInit {
                     .finally();
                 }
               }
+
+
+              this.sanitizedArticle = this.sanitizer.bypassSecurityTrustHtml(this.course.article ?? '');
 
 
             },
