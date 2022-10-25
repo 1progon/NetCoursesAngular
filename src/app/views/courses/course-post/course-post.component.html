@@ -173,7 +173,17 @@
              type="file">
     </div>
 
-    <div>
+    <div class="mb-3"
+         *ngIf="isClipSet && fromClipBoard?.image">
+      <input (click)="copyImageUrlToClipboard()"
+             [value]="fromClipBoard?.image"
+             class="form-control bg-info"
+             readonly
+             type="text">
+      <span *ngIf="isCopiedLink">copied!</span>
+    </div>
+
+    <div class="mb-3">
       <input [disabled]="courseFormRef.invalid || courseFormRef.untouched || courseFormRef.pristine"
              class="btn btn-primary" type="submit" value="Post a course">
     </div>
