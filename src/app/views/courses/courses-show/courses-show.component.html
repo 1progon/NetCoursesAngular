@@ -3,7 +3,8 @@
 
   <div class="content">
     <article>
-      <iframe *ngIf="videoUrl && videoUrl != ''"
+      <iframe id="video-frame"
+              *ngIf="videoUrl && videoUrl != ''"
               [src]="videoUrl"
               [title]="course.name"
               style="border: none; width: 100%;min-height: 70vh"
