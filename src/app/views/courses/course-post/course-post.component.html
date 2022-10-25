@@ -113,6 +113,9 @@
              required
              [minlength]="minLength">
       <div class="form-text">Date Posted by Author on internet</div>
+      <input type="text" readonly
+             class="form-control bg-info"
+             *ngIf="isClipSet" [value]="fromClipBoard?.date"/>
     </div>
 
     <div class="mb-3">
