@@ -102,12 +102,13 @@
     </div>
 
     <div class="mb-3">
-      <label for="posted-by-author" class="required form-label">Posted by Author Date</label>
-      <input #postedByAuthorDate="ngModel"
-             [(ngModel)]="courseForm.postedByAuthor"
-             id="posted-by-author"
+      <label for="dateInForm" class="required form-label">Posted by Author Date</label>
+      <input #dateInFormRef="ngModel"
+             [(ngModel)]="dateInForm"
+             (change)="changeDate()"
+             id="dateInForm"
              class="form-control"
-             name="posted_by_author"
+             name="dateInForm"
              type="date"
              required
              [minlength]="minLength">
