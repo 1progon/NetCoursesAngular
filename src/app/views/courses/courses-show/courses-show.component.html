@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <h2>{{course.name}}</h2>
 
-  <div class="content">
-    <article>
+  <div class="content row">
+    <article class="col-12 col-md-8 col-lg-9">
       <iframe id="video-frame"
               *ngIf="videoUrl && videoUrl != ''"
               [src]="videoUrl"
@@ -20,7 +20,7 @@
       <article [innerHTML]="sanitizedArticle"></article>
     </article>
 
-    <div class="sidebar">
+    <div class="sidebar col">
       <div class="lead">
         <img [alt]="course.name"
              [src]="domainUrl + course.image"
